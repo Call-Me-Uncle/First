@@ -1,0 +1,27 @@
+<html>
+<head>
+	<title>
+		typeof变量测试	
+	</title>
+<script type="text/javascript">
+	var one,two=[1,2,3],five = null;//five= Null报错，因为Null类型的值为null，严格区分大小写，用Null会是一个为定义的变量，所以报错；
+	function four(){
+
+	}
+	alert(typeof one); 
+	alert(typeof(two));
+	alert(typeof(three)); //不报错
+	
+	alert(typeof(four));
+	alert(five);
+	alert(typeof five);  
+	alert(Number.NEGATIVE_INFINITY);//负无穷
+	alert(1/"hehe");
+	// alert(three);  //报错  
+	 //疑问？？ undecleared 咋弄出来
+</script>
+</head>
+<body>
+	
+</body>
+</html>

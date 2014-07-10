@@ -1,0 +1,63 @@
+<html>
+<head>
+	<title>
+		
+	</title>
+<script type="text/javascript">	
+	function createFunctions () {
+		// body...
+		var result = new Array();
+		for(var i=0;i<10;i++){
+			result[i] = function(){
+				return i;
+			};
+		}
+		return result;
+	}
+	var hehe = createFunctions();
+	for(var i=0;i<hehe.length-1;i++){
+		alert(hehe[i]);
+	}
+//	alert(hehe.result()());
+    function create(){
+        (function(){
+            for(var i=0;i<10;i++){
+                alert((i));
+            }
+        })();//私有作用域（块级作用域），其中变量只能在匿名函数中访问
+        alert(i);//此处访问不到i值
+    }
+	// console.log(hehe);
+	// var bianliang = function(){
+	// 	var time = function(){
+	// 		var i = 10;
+	// 		alert(i);
+	// 	}
+	// 	time();
+	// 	// alert(i);//报错，外部访问不到
+	// }
+	// bianliang();
+	// function test(){
+	// 	for (var i = 0; i <=10; i++) {
+			
+	// 	}	
+	// 	var i;
+	// 	alert(i);
+		
+	// }	
+	// test();
+    (function(){
+        var name = "caonima";
+        Person = function(value){
+            name= value;
+            alert(name);
+        }
+    })();
+    alert(name);
+    alert(new Person("hehe"));
+</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+<head>
+	<title>
+		
+	</title>
+<script type="text/javascript">	
+	//经典继承（借用构造函数）：缺点 在超类型的原型中定义的方法，对子类型而言不可见
+	function superType(name){
+		this.name = name;
+		alert(this.name);
+		this.getSuperValue=function(){
+			alert(this.name);
+		};
+	}
+	// superType.prototype.getSuperValue= function(){
+	// 	alert(this.name);
+	// }
+	function subType(name){
+		superType.call(this,name);//调用父类构造函数  
+	}
+	var instance = new subType("Nike");
+	// instance.getSuperValue();
+	console.log(instance);
+	var test = new superType("Mike");
+	console.log(test);
+	superType("Mafe");
+	// superType("Mafe").getSuperValue();//错误。要区分调用函数和实例化对象的区别
+	
+	superType.call(window,"Mary")
+	console.log(superType.call(this,"Mary"));//此方法父类原型和父类内的方法均不可见
+	
+</script>
+</head>
+<body>
+	
+</body>
+</html>

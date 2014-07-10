@@ -1,0 +1,151 @@
+<html>
+<head>
+	<title>
+		
+	</title>
+<script type="text/javascript">	
+	//原型继承
+	var person ={
+		name:"Nill",
+		friends:["SHill","Mary"]
+	};
+	var anotherPerson = Object.create(person);
+	anotherPerson.name = "Grage";//来自实例
+	anotherPerson.friends.push("Rob");//来自原型
+	alert(person.name);//来自父对象
+	alert(person.friends);//来自原型
+
+			//Object.create的第二个参数,对原型没有影响，此处相当于anotherPerson.name = "Grage";
+			//先new一个F为f，然后修改f.name，再return f;
+	var AontherPerson = Object.create(person,{name:{value:"Anal"}});
+	alert(person.name);
+	alert(AontherPerson.name);
+	//对象字面量，创建单个对象，不能复制
+	var person = {
+		name: "nike",
+		age:29,
+		sayName: function(){
+			alert(this.name);
+		}
+	}
+	   //通过复制地址复制,指向同一个对象
+	var person1=person;
+	person1.sayName();
+	if(person1 === person){
+		alert(true);
+	}
+	person1.name = "hero";
+	person.sayName();
+
+	//创建Object实例，来创建自定义对象,与对象字面量相同
+	var crePerson=new Object();
+
+	for(var doc in crePerson){
+		document.write(doc+"<br />呵呵");
+	}
+	crePerson.name = "nike";
+	crePerson.age = 29;
+	crePerson.sayName = function(){
+		alert(this.name);
+	};
+	for(var doc in crePerson){
+		document.write(doc+"<br />");
+	}
+
+	//工厂模式，可以创建多个相同对象，而且每个对象都是一个单独的存在
+	function createPerson(name,age){
+		var o = new Object();
+		o.name = name;
+		o.age  = age;
+		o.sayName = function(){
+			alert(this.name);
+		};
+		return o;
+	}
+	var person2 = createPerson("nike",29);
+	var person3 = createPerson("nike",29);
+	alert(person2.name+"heheehhehe");
+	if(person2 === person3){
+		alert(true);
+	}else{
+		alert(false);
+	}
+	//构造函数模式，创建自定义的构造函数，从而定义自定义对象类型的属性和方法，可以创建多个相同对象，而且每个对象都是一个单独的存在
+	function Person(name,age,job){
+		this.name = name;
+		this.age = age;
+		this.sayName = function(){
+			alert(this.name);
+		};
+	}
+	var person5 = new Person("NIKE",29);
+	var person6 = new Person("nike",29);
+	alert(person5 == person6);
+
+	//将sayName函数移出构造函数内
+	function Person(name,age,job){
+		this.name = name;
+		this.age = age;
+		this.sayName =sayName; 
+	}
+	function sayName(){
+			alert(this.name);
+		}
+	var person = new Person("NIKE",29);
+	var person1 = new Person("nike",29);
+	alert(person.sayName == person1.sayName);	
+
+	//原型模式
+	function GoPerson(){
+		this.anamea = "ok";//在此定义的属性，在原型对象中没有
+	}
+	GoPerson.prototype.name = "nike";
+	GoPerson.prototype.age = 29;
+	GoPerson.prototype.sayName = function(){
+		alert(this.name);
+	};
+	var person1 = new GoPerson();
+	var person2 = new GoPerson();
+	person1.name = "xindingyide";
+	alert(person1.name); //来自实例
+	alert(person2.name);//来自原型
+	alert(person1.anamea+"55555");
+	alert(person1.constructor+"22222");//指向构造函数
+	alert(GoPerson.prototype+"33333");//只能显示是对象，prototype不可枚举
+	alert(Object.keys(GoPerson.prototype)+"11111");//原型中有啥，不可显示原型中的constructor属性
+	alert(Object.getOwnPropertyNames(GoPerson.prototype));//可显示原型中的constructor属性
+
+	//组合使用构造函数模式和原型模式（使用最广泛，认可度最高的创建自定义类型的方法）
+
+	function NewPerson(name,age){
+		this.name = name;
+		this.age = age;
+		this.friends = ["shilt","Jbley"];
+	}
+	NewPerson.prototype = {
+		constructor : NewPerson,
+		sayName : function(){
+			alert(this.name);
+		}
+	}
+
+
+	//稳妥构造函数模式，安全
+
+	function Sperson(){
+		var o = new Object();
+		var name = "caonima";
+		o.sayName = function(){
+			alert(name);
+		};
+		return o;
+	}
+	var beach = Sperson();
+	beach.sayName();   //name的值只能在sayname（）方法中访问。没有其他方法可以访问到name的值
+	alert(beach.name); // undefined
+</script>
+</head>
+<body>
+	
+</body>
+</html>

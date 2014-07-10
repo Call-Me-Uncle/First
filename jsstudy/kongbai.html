@@ -1,0 +1,69 @@
+<html>
+<head>
+	<title>
+		
+	</title>
+<script type="text/javascript">	
+	window.name = "caonima";
+	 var create={
+	 	
+	 	 oo :function(){
+	 		alert(3);
+	 	},
+	 	name:"caonidaye",
+        kk:function(){
+            // for(var i=0;i<2;i++){
+            //     alert(i);
+            // }
+            return function(){
+            	alert(this.name) ;
+            };
+        }//私有作用域（块级作用域），其中变量只能在匿名函数中访问
+        // alert(i);//此处访问不到i值
+    }
+    create.kk()();
+    function caonima(){
+    	this.name = "ada";
+    	
+    }
+    var hehe =new caonima();
+    alert(hehe.name);
+    // (function(){
+    //     var Name = "caonima";
+    //     Person = function(){
+    //         alert(Name+"ok");
+    //     }
+    //     this.Ko = function(){
+    //     	alert("hehe");
+    //     }
+    //     // alert(Name);
+    // })();
+    // // alert(Name);
+    // var person = new Person();
+    // var ok =Ko();
+    function test(){
+	   (function(){
+	        var Name = "caonima";
+	        Person = function(value){
+	            alert(Name+"ok1"+value);
+	        } 
+	        this.Ko = function(){
+	        	return "hehe1";
+	        }
+	        // alert(Name);
+	    })();
+    }
+    test();
+    var person =Person("hehe");
+    var person1 =Person("hehewww");
+     console.log(person1);
+
+    var ok =window.Ko();
+    alert(ok);
+    
+</script>
+</head>
+<body>
+	
+</body>
+</html>

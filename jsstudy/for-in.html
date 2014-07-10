@@ -1,0 +1,32 @@
+<html>
+<head>
+	<title>
+		typeof变量测试	
+	</title>
+<script type="text/javascript">
+	var i=0;
+	do{
+		i+=2;
+		alert(i);
+	}while(i<0);
+	alert(i);
+	for(var propName in window){
+		document.write(propName+"<br />");
+	}
+	document.write("呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵<br />")
+	for(var propName in document){
+		document.write(propName+"<br />");
+	}
+//    for(var propName in Global){
+//        alert(propName+"<br />");
+//    }报错
+    var global = function(){
+        alert(this);
+    }();
+
+</script>
+</head>
+<body>
+	
+</body>
+</html>

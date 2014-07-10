@@ -1,0 +1,36 @@
+<html>
+<head>
+	<title>
+		传递参数，值传递详解
+	</title>
+<script type="text/javascript">
+	// var obj1= new Object();
+	// var obj2=obj1;
+	// obj1.name="nike";
+	// alert(obj2.name);
+	// var obj3=new Object();
+	// obj2=obj3;
+	// obj3.name="gase";
+	// alert(obj1.name);
+	// alert(obj2.name);
+	// // nike  ,nike  ,gase
+
+	//引用类型的值复制
+	function setName(obj){
+		obj.name="nike";
+		console.log(obj);
+		console.log(person);
+		obj=new Object;
+		obj.name="grag";
+		console.log(obj);
+		console.log(person);
+	}
+	var person=new Object();
+	setName(person);
+	alert(person.name);
+</script>
+</head>
+<body>
+	
+</body>
+</html>

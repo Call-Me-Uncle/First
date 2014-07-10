@@ -1,0 +1,30 @@
+<html>
+<head>
+	<title>
+		
+	</title>
+<script type="text/javascript">	
+    var result =new Array();
+	for(var i=0;i<10;i++){
+            result[i] = function(){
+               return i;
+            };
+            
+    }
+    console.log(result);
+    alert(result[5]);
+    function pro(){
+
+    }
+    pro.prototype.getName=function(){
+        alert(1);
+    }
+    var proN = new pro();
+    console.log(proN);
+    // console.log(window);
+</script>
+</head>
+<body>
+	
+</body>
+</html>

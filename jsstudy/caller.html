@@ -1,0 +1,22 @@
+<html>
+<head>
+	<title>
+		
+	</title>
+<script type="text/javascript">	
+	    function outer(){
+            inner();
+        }
+//        function inner(){
+//            alert(inner.caller);
+//        }
+        function inner(){
+            alert(inner.arguments.callee.caller);
+        }
+        outer();
+</script>
+</head>
+<body>
+	
+</body>
+</html>
